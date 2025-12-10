@@ -64,7 +64,8 @@ class MyLamp(LedLamp): # Либо enum, но так проще ->
 
 lamp = MyLamp()
 lamp.clear()
-robot:RobotControl = TIPOROBOT(RobotControl()) # Также сделать отдельный конфиг с хостами
+robot:RobotControl = TIPOROBOT(RobotControl()) # Так как я не знаю что возвращает api то дальше код с api будет примерный!
+# В документации не было примеров возврата, либо я не нашел
 
 class Moving:
     """
@@ -121,6 +122,8 @@ class MainWindow(QMainWindow, Ui_Dialog):
     def ui_init(self):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
+
+        # Добавляем к каждой кнопке движения, ассинхронный слот на конкретное управление
         for mt in self.ui.__dict__: # Подключение ручного управления
             if isinstance(self.ui.__dict__[mt], QPushButton) and "moveJ" in mt:
                 button: QPushButton = self.ui.__dict__[mt]
@@ -129,6 +132,7 @@ class MainWindow(QMainWindow, Ui_Dialog):
                 button.released.connect(self.hand_stop)
 
             if isinstance(self.ui.__dict__[mt], QPushButton) and "MoveL" in mt:
+
                 button: QPushButton = self.ui.__dict__[mt]
                 method_ = Moving(int(mt[5:-2]), -1 if mt[-1] == "m" else 1, self, move="l")
                 button.pressed.connect(method_)
