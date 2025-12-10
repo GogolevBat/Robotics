@@ -1,0 +1,237 @@
+import asyncio
+import datetime
+import random
+import sys
+from asyncio import create_task
+from functools import wraps
+from typing import Any, Callable, Literal
+import aiohttp
+from PyQt5.QtCore import QSize
+from PyQt5.QtCore import pyqtSignal, QObject
+from PyQt5.QtGui import QTextCursor
+from PyQt5.QtWidgets import QMainWindow, QWidget, QTableWidget, QTableWidgetItem, QLabel, QStyle, QHBoxLayout, \
+    QPushButton, QTextEdit, QLayout, QVBoxLayout
+from PyQt6.QtCore import QTimer
+from qasync import QEventLoop, QApplication, asyncSlot
+from motion.core import RobotControl, LedLamp
+from designe import Ui_Dialog
+import aiofiles
+import aiofiles.os as aos
+import aiocsv
+class TIPOROBOT:
+    def __init__(self, robot: RobotControl):
+        ...
+    def __getattr__(self, arg):
+        def wrapper(*args, **kwargs):
+            # print(f"(RobotControl) метод: {arg}({args, kwargs})")
+            return [random.randint(1,157)/100 for _ in range(6)]
+        return wrapper
+
+class LogEmitter:
+    def __init__(self, window: "MainWindow"):
+        self._window = window
+
+    async def log(self, level, text):
+        log_message = f"\n{datetime.datetime.now().isoformat()[:-4]} - {level} - {text}"
+        print(log_message)
+        self._window.ui.logs_field.insertPlainText(log_message)
+        if self._window.ui.flag_logs_to_csv.isChecked():
+            self._window.logs_queue.put_nowait(log_message)
+
+    def info(self, text):
+        create_task(self.log("INFO",text))
+    def debug(self, text):
+        create_task(self.log("DEBUG",text))
+    def warning(self, text):
+        create_task(self.log("WARNING",text))
+    def error(self, text):
+        create_task(self.log("ERROR",text))
+
+class MyLamp(LedLamp): # Либо enum, но так проще ->
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def stopped(self):
+        self.setLamp("0001")
+    def pause(self):
+        self.setLamp("0010")
+    def work(self):
+        self.setLamp("0100")
+    def wait(self):
+        self.setLamp("1000")
+    def clear(self):
+        self.setLamp("0000")
+
+lamp = MyLamp()
+lamp.clear()
+robot:RobotControl = TIPOROBOT(RobotControl()) # Также сделать отдельный конфиг с хостами
+
+class Moving:
+    """
+    Класс для быстрого присваниваний функций движения кнопкам
+    """
+    def __init__(self, joint:int, astype:int, pwindow: "MainWindow", move: Literal["j", "l"] = "j"):
+        self.astype = astype
+        self.joint = joint
+        self.window = pwindow
+        self.method = self.movej if move == "j" else self.movel
+
+    async def movel(self):
+        robot.manualCartMode()
+        # logger.info(f"Гартезианское управление joint={self.joint}, astype={self.astype}")
+        if not self.window.ui.hand_mode.isChecked():
+            logger.error("Не включено ручное управление!")
+            return
+        movement = [0, 0, 0, 0, 0, 0]
+        velocity = (self.window.ui.velocity_slider.value() / 100) * self.astype
+        movement[self.joint - 1] = velocity
+        logger.info(f"Движение бесконечности {movement}")
+
+    async def movej(self):
+        robot.manualJointMode()
+        print("что-то")
+        if not self.window.ui.hand_mode.isChecked():
+            logger.error("Не включено ручное управление!")
+            return
+        movement = [0, 0, 0, 0, 0, 0]
+        velocity = (self.window.ui.velocity_slider.value() / 100) * self.astype
+        movement[self.joint - 1] = velocity
+        logger.info(f"Движение бесконечности {movement}")
+
+    @asyncSlot()
+    async def __call__(self):
+        return await self.method()
+def update_table(table: QTableWidget, columns: list, matrix: list[list[Any]], indexes:list=None) -> QTableWidget:
+    table.setRowCount(len(matrix))
+    table.setColumnCount(len(columns))
+    table.setHorizontalHeaderLabels(columns)
+    if indexes:
+        table.setVerticalHeaderLabels(indexes)
+    for i, row in enumerate(matrix):
+        for j, col in enumerate(row):
+            table.setItem(i, j, QTableWidgetItem(f"{col}"))
+    return table
+
+class MainWindow(QMainWindow, Ui_Dialog):
+    def __init__(self):
+        super().__init__()
+        self.ui_init()
+        self.logs_queue = asyncio.Queue()
+
+    def ui_init(self):
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self)
+        for mt in self.ui.__dict__: # Подключение ручного управления
+            if isinstance(self.ui.__dict__[mt], QPushButton) and "moveJ" in mt:
+                button: QPushButton = self.ui.__dict__[mt]
+                method_ = Moving(int(mt[-2]), -1 if mt[-1] == "m" else 1, self)
+                button.pressed.connect(method_)
+                button.released.connect(self.hand_stop)
+
+            if isinstance(self.ui.__dict__[mt], QPushButton) and "MoveL" in mt:
+                button: QPushButton = self.ui.__dict__[mt]
+                method_ = Moving(int(mt[5:-2]), -1 if mt[-1] == "m" else 1, self, move="l")
+                button.pressed.connect(method_)
+                button.released.connect(self.hand_stop)
+
+        self.ui.STOP_I_TOCHKA.clicked.connect(self.stop_)
+        self.ui.robot_power_on.clicked.connect(self._start_motion)
+        self.ui.robot_power_off.clicked.connect(self.stop_)
+
+        self.ui.flag_logs_to_csv.clicked.connect(self.log_logs_to_csv)
+
+        self.ui.logs_field.textChanged.connect(self.log_change_text)
+
+        self.ui.take_and_put.clicked.connect(self._take_put_motion)
+
+    def log_change_text(self):
+        self.ui.logs_field.moveCursor(QTextCursor.End)
+
+    def _take_put_motion(self):
+        if self.ui.take_and_put.isChecked():
+            robot.toolON()
+            logger.info("Захват объекта")
+        else:
+            robot.toolOFF()
+            logger.info("Отхват объекта")
+
+    def _start_motion(self):
+        logger.info("Запуск моторов робота")
+        robot.engage()
+        robot.moveToInitialPose()
+
+    def stop_(self):
+        logger.info("Остановка робота")
+        robot.disengage()
+
+    def log_logs_to_csv(self):
+        if self.ui.flag_logs_to_csv.isChecked():
+            self.logs_file = f"logs/{datetime.datetime.now().strftime("%Y%m%d-%H%M%S.csv")}"
+            self.new_file = True
+
+    @asyncSlot()
+    async def hand_stop(self):
+        if self.ui.hand_mode.isChecked():
+            robot.setJointVelocity([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+            logger.info(f"Остановка движения")
+
+
+    async def update_table_axes_joints(self):
+        data = [
+            robot.getMotorPositionRadians(),
+            robot.getMotorPositionTick(),
+            robot.getActualTemperature(),
+        ]
+        update_table(
+            self.ui.table_axes_joints,
+            ["J1", "J2", "J3", "J4", "J5", "J6"],
+            data,
+            indexes=["radians", "ticks", "temperature"]
+        )
+    async def update_table_position_robot(self):
+        data = [
+            robot.getLinearTrackPosition()
+        ]
+        update_table(
+            self.ui.table_position_robot,
+            ["x", "y", "z"],
+            data
+        )
+    async def lifespan(self):
+        await self.update_table_axes_joints()
+        await self.update_table_position_robot()
+
+    async def logs_manager(self):
+        sep = ";"
+        chunk_size = 5 # Вероятно из-за этого не все логи будут сохраняться и вынести в .env но не сегодня
+        logs = []
+        while True:
+            await asyncio.sleep(0.1)
+            log = await self.logs_queue.get()
+            logs.append(log)
+            if len(logs) < chunk_size:
+                continue
+            print("logs_manager Обработка лога в файл")
+            async with aiofiles.open(self.logs_file, mode="a") as f: # Можно было использовать aiocsv
+                if self.new_file:
+                    self.new_file = False
+                    await f.write(sep.join(["Дата", "Тип", "Содержание"]))
+                await f.write(sep.join(log.split(" - ")))
+
+async def main(stop_event: asyncio.Event, window: MainWindow):
+    asyncio.create_task(window.logs_manager())
+    while not stop_event.is_set():
+        await asyncio.sleep(3)
+        await window.lifespan()
+
+if __name__ == '__main__':
+
+    app = QApplication(sys.argv)
+
+    stop_event = asyncio.Event()
+    app.aboutToQuit.connect(stop_event.set)
+    window = MainWindow()
+    logger = LogEmitter(window)
+    window.show()
+
+    asyncio.run(main(stop_event, window), loop_factory=QEventLoop)

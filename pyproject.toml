@@ -1,0 +1,21 @@
+[project]
+name = "robotictechnologies"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "aiocsv>=1.4.0",
+    "aiofiles>=25.1.0",
+    "aiohttp>=3.13.2",
+    "motorcortex-python>=0.24.2",
+    "notebook>=7.5.0",
+    "opencv-python>=4.12.0.88",
+    "pandas>=2.3.3",
+    "pyqt-tools>=1.0.0",
+    "pyqt6>=6.10.1",
+    "qasync>=0.28.0",
+    "ultralytics>=8.3.233",
+]
+
+[tool.uv.sources]
+motion-core-api = { path = "colledge/first_work_08122025/motion-core_API-0.1.1.tar" }
