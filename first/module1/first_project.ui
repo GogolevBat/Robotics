@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>733</width>
+    <width>800</width>
     <height>586</height>
    </rect>
   </property>
@@ -22,9 +22,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>99</x>
      <y>120</y>
-     <width>670</width>
+     <width>671</width>
      <height>120</height>
     </rect>
    </property>
@@ -35,7 +35,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>440</x>
      <y>270</y>
      <width>331</width>
      <height>311</height>
@@ -48,7 +48,7 @@
   <widget class="QLabel" name="label_logs">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>440</x>
      <y>250</y>
      <width>60</width>
      <height>16</height>
@@ -61,7 +61,7 @@
   <widget class="QCheckBox" name="flag_logs_to_csv">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>670</x>
      <y>247</y>
      <width>101</width>
      <height>20</height>
@@ -74,7 +74,7 @@
   <widget class="QPushButton" name="robot_power_on">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>310</x>
      <y>30</y>
      <width>113</width>
      <height>32</height>
@@ -87,7 +87,7 @@
   <widget class="QPushButton" name="robot_power_off">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>310</x>
      <y>60</y>
      <width>113</width>
      <height>32</height>
@@ -102,7 +102,7 @@
     <rect>
      <x>30</x>
      <y>290</y>
-     <width>141</width>
+     <width>311</width>
      <height>281</height>
     </rect>
    </property>
@@ -586,39 +586,32 @@
       <string>-</string>
      </property>
     </widget>
+    <widget class="QSlider" name="horizontalSlider">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>20</y>
+       <width>160</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>2</number>
+     </property>
+     <property name="pageStep">
+      <number>1</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+     <property name="tracking">
+      <bool>true</bool>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
    </widget>
-  </widget>
-  <widget class="QLabel" name="label_13">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>290</y>
-     <width>60</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Скорость перемещения</string>
-   </property>
-  </widget>
-  <widget class="QSlider" name="velocity_slider">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>320</y>
-     <width>160</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="minimum">
-    <number>1</number>
-   </property>
-   <property name="maximum">
-    <number>5</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
   </widget>
   <widget class="QTableWidget" name="table_position_robot">
    <property name="enabled">
@@ -626,18 +619,18 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>420</x>
      <y>30</y>
      <width>351</width>
      <height>71</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_14">
+  <widget class="QLabel" name="lamp_stoped">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>20</y>
+     <x>10</x>
+     <y>130</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -646,11 +639,11 @@
     <string>Остановлен</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_15">
+  <widget class="QLabel" name="lamp_paused">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>40</y>
+     <x>10</x>
+     <y>150</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -659,11 +652,11 @@
     <string>На паузе</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_16">
+  <widget class="QLabel" name="lamp_working">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>60</y>
+     <x>10</x>
+     <y>170</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -672,11 +665,11 @@
     <string>Работа</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_17">
+  <widget class="QLabel" name="lamp_waiting">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>80</y>
+     <x>10</x>
+     <y>190</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -688,24 +681,24 @@
   <widget class="QPushButton" name="STOP_I_TOCHKA">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>20</y>
-     <width>91</width>
-     <height>91</height>
+     <x>30</x>
+     <y>10</y>
+     <width>261</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: #f12000; color: #ffffff; font-size: 24px;</string>
    </property>
    <property name="text">
-    <string>СТОП</string>
+    <string>Аварийное остановка</string>
    </property>
   </widget>
   <widget class="QPushButton" name="take_and_put">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>370</y>
+     <x>180</x>
+     <y>250</y>
      <width>113</width>
      <height>32</height>
     </rect>

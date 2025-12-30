@@ -18,6 +18,10 @@ from designe import Ui_Dialog
 import aiofiles
 import aiofiles.os as aos
 import aiocsv
+from utils.logger import LogEmitter
+from utils.lamp import MyLamp
+from utils.nepovtorimiy_original import MotionBlurRobot
+
 class TIPOROBOT:
     def __init__(self, robot: RobotControl):
         ...
@@ -27,44 +31,9 @@ class TIPOROBOT:
             return [random.randint(1,157)/100 for _ in range(6)]
         return wrapper
 
-class LogEmitter:
-    def __init__(self, window: "MainWindow"):
-        self._window = window
 
-    async def log(self, level, text):
-        log_message = f"\n{datetime.datetime.now().isoformat()[:-4]} - {level} - {text}"
-        print(log_message)
-        self._window.ui.logs_field.insertPlainText(log_message)
-        if self._window.ui.flag_logs_to_csv.isChecked():
-            self._window.logs_queue.put_nowait(log_message)
 
-    def info(self, text):
-        create_task(self.log("INFO",text))
-    def debug(self, text):
-        create_task(self.log("DEBUG",text))
-    def warning(self, text):
-        create_task(self.log("WARNING",text))
-    def error(self, text):
-        create_task(self.log("ERROR",text))
-
-class MyLamp(LedLamp): # Либо enum, но так проще ->
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    def stopped(self):
-        self.setLamp("0001")
-    def pause(self):
-        self.setLamp("0010")
-    def work(self):
-        self.setLamp("0100")
-    def wait(self):
-        self.setLamp("1000")
-    def clear(self):
-        self.setLamp("0000")
-
-lamp = MyLamp()
-lamp.clear()
-robot:RobotControl = TIPOROBOT(RobotControl()) # Так как я не знаю что возвращает api то дальше код с api будет примерный!
+robot = MotionBlurRobot() # Так как я не знаю что возвращает api то дальше код с api будет примерный!
 # В документации не было примеров возврата, либо я не нашел
 
 class Moving:
@@ -102,6 +71,7 @@ class Moving:
     @asyncSlot()
     async def __call__(self):
         return await self.method()
+
 def update_table(table: QTableWidget, columns: list, matrix: list[list[Any]], indexes:list=None) -> QTableWidget:
     table.setRowCount(len(matrix))
     table.setColumnCount(len(columns))
@@ -123,9 +93,12 @@ class MainWindow(QMainWindow, Ui_Dialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
 
+        self.lamp = MyLamp(self.ui)
+
         # Добавляем к каждой кнопке движения, ассинхронный слот на конкретное управление
         for mt in self.ui.__dict__: # Подключение ручного управления
             if isinstance(self.ui.__dict__[mt], QPushButton) and "moveJ" in mt:
+
                 button: QPushButton = self.ui.__dict__[mt]
                 method_ = Moving(int(mt[-2]), -1 if mt[-1] == "m" else 1, self)
                 button.pressed.connect(method_)
@@ -147,6 +120,8 @@ class MainWindow(QMainWindow, Ui_Dialog):
         self.ui.logs_field.textChanged.connect(self.log_change_text)
 
         self.ui.take_and_put.clicked.connect(self._take_put_motion)
+
+
 
     def log_change_text(self):
         self.ui.logs_field.moveCursor(QTextCursor.End)
@@ -181,11 +156,12 @@ class MainWindow(QMainWindow, Ui_Dialog):
 
 
     async def update_table_axes_joints(self):
-        data = [
-            robot.getMotorPositionRadians(),
-            robot.getMotorPositionTick(),
-            robot.getActualTemperature(),
+        tasks = [
+            asyncio.to_thread(robot.getMotorPositionRadians),
+            asyncio.to_thread(robot.getMotorPositionTick),
+            asyncio.to_thread(robot.getActualTemperature),
         ]
+        data = await asyncio.gather(*tasks)
         update_table(
             self.ui.table_axes_joints,
             ["J1", "J2", "J3", "J4", "J5", "J6"],
@@ -194,7 +170,7 @@ class MainWindow(QMainWindow, Ui_Dialog):
         )
     async def update_table_position_robot(self):
         data = [
-            robot.getLinearTrackPosition()
+            await asyncio.to_thread(robot.getLinearTrackPosition)
         ]
         update_table(
             self.ui.table_position_robot,
@@ -202,8 +178,11 @@ class MainWindow(QMainWindow, Ui_Dialog):
             data
         )
     async def lifespan(self):
-        await self.update_table_axes_joints()
-        await self.update_table_position_robot()
+        tasks = [
+            self.update_table_axes_joints(),
+            self.update_table_position_robot()
+        ]
+        await asyncio.gather(*tasks)
 
     async def logs_manager(self):
         sep = ";"
