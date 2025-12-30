@@ -5,11 +5,11 @@ from time import sleep
 
 class RandomMixin:
     def random_state(self):
-        sleep(.5) # как в самых нормисных курсах делаем вид что отправляем синхронный запрос к api
+        sleep(.1) # как в самых нормисных курсах делаем вид что отправляем синхронный запрос к api
         return random.choice([True, True, True, True, False])
 
     def random_coords(self):
-        sleep(.5)
+        sleep(.1)
         return [random.randint(1,157)/100 for _ in range(6)]
 
 
@@ -51,6 +51,12 @@ class MotionBlurRobot(RandomMixin):
         return self.random_coords()
 
     def getLinearTrackPosition(self):
+        return self.random_coords()
+
+    def get_motor_degree_position(self):
+        return map(lambda x: f"{x * 57.2958:.1f}", self.getMotorPositionRadians())
+
+    def getangular_position(self):
         return self.random_coords()
 
 class LedLamp(RandomMixin):

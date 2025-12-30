@@ -6,7 +6,7 @@ class LogEmitter:
         self._window = window
 
     async def log(self, level, text):
-        log_message = f"\n{datetime.datetime.now().isoformat()[:-4]} - {level} - {text}"
+        log_message = f"\n{datetime.now().isoformat()[:-4]} - {level} - {text}"
         print(log_message)
         self._window.ui.logs_field.insertPlainText(log_message)
         if self._window.ui.flag_logs_to_csv.isChecked():

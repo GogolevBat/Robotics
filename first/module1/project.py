@@ -10,9 +10,11 @@ from PyQt5.QtCore import QSize
 from PyQt5.QtCore import pyqtSignal, QObject
 from PyQt5.QtGui import QTextCursor
 from PyQt5.QtWidgets import QMainWindow, QWidget, QTableWidget, QTableWidgetItem, QLabel, QStyle, QHBoxLayout, \
-    QPushButton, QTextEdit, QLayout, QVBoxLayout
+    QPushButton, QTextEdit, QLayout, QVBoxLayout, QSlider
 from PyQt6.QtCore import QTimer
 from qasync import QEventLoop, QApplication, asyncSlot
+
+from first.module1.utils.hand_move import Moving
 from motion.core import RobotControl, LedLamp
 from designe import Ui_Dialog
 import aiofiles
@@ -36,42 +38,6 @@ class TIPOROBOT:
 robot = MotionBlurRobot() # Так как я не знаю что возвращает api то дальше код с api будет примерный!
 # В документации не было примеров возврата, либо я не нашел
 
-class Moving:
-    """
-    Класс для быстрого присваниваний функций движения кнопкам
-    """
-    def __init__(self, joint:int, astype:int, pwindow: "MainWindow", move: Literal["j", "l"] = "j"):
-        self.astype = astype
-        self.joint = joint
-        self.window = pwindow
-        self.method = self.movej if move == "j" else self.movel
-
-    async def movel(self):
-        robot.manualCartMode()
-        # logger.info(f"Гартезианское управление joint={self.joint}, astype={self.astype}")
-        if not self.window.ui.hand_mode.isChecked():
-            logger.error("Не включено ручное управление!")
-            return
-        movement = [0, 0, 0, 0, 0, 0]
-        velocity = (self.window.ui.velocity_slider.value() / 100) * self.astype
-        movement[self.joint - 1] = velocity
-        logger.info(f"Движение бесконечности {movement}")
-
-    async def movej(self):
-        robot.manualJointMode()
-        print("что-то")
-        if not self.window.ui.hand_mode.isChecked():
-            logger.error("Не включено ручное управление!")
-            return
-        movement = [0, 0, 0, 0, 0, 0]
-        velocity = (self.window.ui.velocity_slider.value() / 100) * self.astype
-        movement[self.joint - 1] = velocity
-        logger.info(f"Движение бесконечности {movement}")
-
-    @asyncSlot()
-    async def __call__(self):
-        return await self.method()
-
 def update_table(table: QTableWidget, columns: list, matrix: list[list[Any]], indexes:list=None) -> QTableWidget:
     table.setRowCount(len(matrix))
     table.setColumnCount(len(columns))
@@ -88,6 +54,7 @@ class MainWindow(QMainWindow, Ui_Dialog):
         super().__init__()
         self.ui_init()
         self.logs_queue = asyncio.Queue()
+        self.logger = LogEmitter(self)
 
     def ui_init(self):
         self.ui = Ui_Dialog()
@@ -97,19 +64,34 @@ class MainWindow(QMainWindow, Ui_Dialog):
 
         # Добавляем к каждой кнопке движения, ассинхронный слот на конкретное управление
         for mt in self.ui.__dict__: # Подключение ручного управления
-            if isinstance(self.ui.__dict__[mt], QPushButton) and "moveJ" in mt:
+            if isinstance(self.ui.__dict__[mt], QSlider) and "MoveJ" in mt:
 
-                button: QPushButton = self.ui.__dict__[mt]
-                method_ = Moving(int(mt[-2]), -1 if mt[-1] == "m" else 1, self)
-                button.pressed.connect(method_)
-                button.released.connect(self.hand_stop)
+                slider: QSlider = self.ui.__dict__[mt]
+                method_ = Moving(
+                    slider=slider,
+                    joint=int(mt[-1]),
+                    astype=-1 if mt[-1] == "m" else 1,
+                    pwindow=self,
+                    robot=robot
+                )
+                slider.valueChanged.connect(method_)
+                slider.sliderReleased.connect(method_.hand_stop)
 
-            if isinstance(self.ui.__dict__[mt], QPushButton) and "MoveL" in mt:
+            if isinstance(self.ui.__dict__[mt], QSlider) and "MoveL" in mt:
 
-                button: QPushButton = self.ui.__dict__[mt]
-                method_ = Moving(int(mt[5:-2]), -1 if mt[-1] == "m" else 1, self, move="l")
-                button.pressed.connect(method_)
-                button.released.connect(self.hand_stop)
+                slider: QSlider = self.ui.__dict__[mt]
+                method_ = Moving(
+                    slider=slider,
+                    joint=int(mt[-1]),
+                    astype=-1 if mt[-1] == "m" else 1,
+                    pwindow=self,
+                    robot=robot,
+                    move="l"
+                )
+                print(slider)
+                slider.valueChanged.connect(method_)
+                slider.sliderReleased.connect(method_.hand_stop)
+
 
         self.ui.STOP_I_TOCHKA.clicked.connect(self.stop_)
         self.ui.robot_power_on.clicked.connect(self._start_motion)
@@ -129,18 +111,18 @@ class MainWindow(QMainWindow, Ui_Dialog):
     def _take_put_motion(self):
         if self.ui.take_and_put.isChecked():
             robot.toolON()
-            logger.info("Захват объекта")
+            self.logger.info("Захват объекта")
         else:
             robot.toolOFF()
-            logger.info("Отхват объекта")
+            self.logger.info("Отхват объекта")
 
     def _start_motion(self):
-        logger.info("Запуск моторов робота")
+        self.logger.info("Запуск моторов робота")
         robot.engage()
         robot.moveToInitialPose()
 
     def stop_(self):
-        logger.info("Остановка робота")
+        self.logger.info("Остановка робота")
         robot.disengage()
 
     def log_logs_to_csv(self):
@@ -148,25 +130,20 @@ class MainWindow(QMainWindow, Ui_Dialog):
             self.logs_file = f"logs/{datetime.datetime.now().strftime("%Y%m%d-%H%M%S.csv")}"
             self.new_file = True
 
-    @asyncSlot()
-    async def hand_stop(self):
-        if self.ui.hand_mode.isChecked():
-            robot.setJointVelocity([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-            logger.info(f"Остановка движения")
-
 
     async def update_table_axes_joints(self):
         tasks = [
             asyncio.to_thread(robot.getMotorPositionRadians),
             asyncio.to_thread(robot.getMotorPositionTick),
             asyncio.to_thread(robot.getActualTemperature),
+            asyncio.to_thread(robot.get_motor_degree_position),
         ]
         data = await asyncio.gather(*tasks)
         update_table(
             self.ui.table_axes_joints,
             ["J1", "J2", "J3", "J4", "J5", "J6"],
             data,
-            indexes=["radians", "ticks", "temperature"]
+            indexes=["radians", "ticks", "temperature", "degrees"],
         )
     async def update_table_position_robot(self):
         data = [
@@ -214,7 +191,7 @@ if __name__ == '__main__':
     stop_event = asyncio.Event()
     app.aboutToQuit.connect(stop_event.set)
     window = MainWindow()
-    logger = LogEmitter(window)
+
     window.show()
 
     asyncio.run(main(stop_event, window), loop_factory=QEventLoop)
