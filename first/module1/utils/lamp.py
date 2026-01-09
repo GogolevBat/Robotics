@@ -13,6 +13,16 @@ class LampValue:
     style: str
 
 class MyLamp(LedLamp):
+    """
+    Изначальные названия методов, думаю, что я запутаюсь и проще просто цветами обозвать!
+    stoped() - краснный
+
+    working() - зеленный
+
+    paused() - желтый
+
+    waiting() - синий
+    """
     def __init__(self, ui_dialog, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -36,30 +46,33 @@ class MyLamp(LedLamp):
             lmp.widget.setStyleSheet(lmp.style)
 
 
-    async def stoped(self):
+    async def red(self):
         self._set("stop")
         return await asyncio.to_thread(self.setLamp, "0001")
 
-    async def working(self):
+    @property
+    async def green(self):
         self._set("work")
         return await asyncio.to_thread(self.setLamp, "0100")
 
-    async def paused(self):
+    @property
+    async def yellow(self):
         self._set("pause")
         return await asyncio.to_thread(self.setLamp, "0010")
 
-    async def waiting(self):
+    @property
+    async def blue(self):
         self._set("wait")
         return await asyncio.to_thread(self.setLamp, "1000")
-
+    @property
     async def clear(self):
         self._set("clear")
         return await asyncio.to_thread(self.setLamp, "0000")
 
     def madnes(self):
         """
-        Вы знаете что такое безумие?
+        Вы знаете что такое безумие? ;)
         :return:
         """
         self._set("clear")
-        asyncio.create_task(asyncio.to_thread(self.setLamp, "1111"))
+        asyncio.create_task(asyncio.to_thread(self.setLamp, "1111")) # <- ПОВТОРЕНИЕ ОДНОГО И ТОГО ЖЕ ДЕЙСТВИЯ 4 РАЗА МИНИМУМ
