@@ -22,7 +22,7 @@ class Moving(QObject):
     async def movel(self):
         # logger.info(f"Гартезианское управление joint={self.joint}, astype={self.astype}")
         if not self.window.ui.hand_mode.isChecked():
-            self.window.logger.error("Не включено ручное управление!")
+            self.window.logger.warning("Не включено ручное управление!")
             return
         await asyncio.to_thread(self.robot.manualCartMode)
         position = self.slider.sliderPosition() - 1
@@ -33,7 +33,7 @@ class Moving(QObject):
 
     async def movej(self):
         if not self.window.ui.hand_mode.isChecked():
-            self.window.logger.error(f"Не включено ручное управление!")
+            self.window.logger.warning(f"Не включено ручное управление!")
             return
         await asyncio.to_thread(self.robot.manualJointMode)
         position = self.slider.sliderPosition() - 1

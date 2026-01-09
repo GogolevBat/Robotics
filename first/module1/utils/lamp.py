@@ -39,7 +39,7 @@ class MyLamp(LedLamp):
 
     def _set(self, key: Literal["stop", "pause", "wait", "work", "clear"] = "clear"):
         for lmp in self.all_types.values():
-            lmp.widget.setStyleSheet("background-color: red;")
+            lmp.widget.setStyleSheet("background-color: white;")
 
         if key in self.all_types:
             lmp = self.all_types[key]
@@ -50,21 +50,18 @@ class MyLamp(LedLamp):
         self._set("stop")
         return await asyncio.to_thread(self.setLamp, "0001")
 
-    @property
     async def green(self):
         self._set("work")
         return await asyncio.to_thread(self.setLamp, "0100")
 
-    @property
     async def yellow(self):
         self._set("pause")
         return await asyncio.to_thread(self.setLamp, "0010")
 
-    @property
     async def blue(self):
         self._set("wait")
         return await asyncio.to_thread(self.setLamp, "1000")
-    @property
+
     async def clear(self):
         self._set("clear")
         return await asyncio.to_thread(self.setLamp, "0000")

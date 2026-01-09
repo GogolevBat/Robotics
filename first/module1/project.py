@@ -94,8 +94,9 @@ class MainWindow(QMainWindow, Ui_Dialog):
 
 
         self.ui.STOP_I_TOCHKA.clicked.connect(self.stop_)
+        self.ui.off_worker.clicked.connect(self.end_work_with_robot)
         self.ui.robot_power_on.clicked.connect(self._start_motion)
-        self.ui.robot_power_off.clicked.connect(self.stop_)
+        self.ui.robot_start_position.clicked.connect(self.start_position)
 
         self.ui.flag_logs_to_csv.clicked.connect(self.log_logs_to_csv)
 
@@ -103,27 +104,89 @@ class MainWindow(QMainWindow, Ui_Dialog):
 
         self.ui.take_and_put.clicked.connect(self._take_put_motion)
 
+        self.ui.hand_mode.clicked.connect(self._hand_mode)
 
+        self.ui.robot_conveyer_stop.clicked.connect(self.stop_conv)
+        self.ui.robot_conveyer_start.clicked.connect(self.start_conv)
 
     def log_change_text(self):
         self.ui.logs_field.moveCursor(QTextCursor.End)
 
-    def _take_put_motion(self):
+    @asyncSlot()
+    async def _take_put_motion(self):
         if self.ui.take_and_put.isChecked():
-            robot.toolON()
+            await asyncio.to_thread(robot.toolON)
             self.logger.info("Захват объекта")
         else:
-            robot.toolOFF()
+            await asyncio.to_thread(robot.toolOFF)
             self.logger.info("Отхват объекта")
 
-    def _start_motion(self):
-        self.logger.info("Запуск моторов робота")
-        robot.engage()
-        robot.moveToInitialPose()
+    @asyncSlot()
+    async def _hand_mode(self):
+        if self.ui.hand_mode.isChecked():
+            self.logger.info("Переход в ручной режим")
+            await self.lamp.green()
+        else:
+            self.logger.info("Выход из ручного режима")
+            await self.lamp.blue()
 
-    def stop_(self):
+
+    @asyncSlot()
+    async def end_work_with_robot(self):
+        self.logger.info("Завершение работы с робота")
+        res = await asyncio.to_thread(robot.moveToInitialPose)
+        if res:
+            self.logger.info("Возврат к начальной позиции")
+            await self.stop_conv()
+            await self.lamp.clear()
+        if not res:
+            self.logger.error("Отрицательный ответ от робота при возврате в начальное положение!")
+
+
+    @asyncSlot()
+    async def _start_motion(self):
+        self.logger.info("Запуск моторов робота")
+        await asyncio.to_thread(robot.engage)
+        await self.lamp.blue()
+
+    @asyncSlot()
+    async def stop_(self):
         self.logger.info("Остановка робота")
-        robot.disengage()
+        await self.stop_conv()
+        while True:
+            res = await asyncio.to_thread(robot.disengage)
+            if res:
+                break
+            await asyncio.sleep(.1)
+        self.logger.info("Полная остановка робота")
+        await self.lamp.red()
+
+    @asyncSlot()
+    async def start_position(self):
+        res = await asyncio.to_thread(robot.activateMoveToStart)
+        if res:
+            await self.lamp.blue()
+            self.logger.info("Возврат к стартовой позиции")
+        else:
+            self.logger.error("Ощибка возврата к стартовой позиции")
+
+    @asyncSlot()
+    async def stop_conv(self): # Я робота не видел, но мне сказали, что есть конвейер, фантазеры ей богу)
+        res = await asyncio.to_thread(robot.conveyer_stop)
+        if res:
+            self.logger.info("Остановка конвейера!")
+        else:
+            self.logger.error("Отрицательный ответ от возврата остановки конвейера")
+        return res
+
+    @asyncSlot()
+    async def start_conv(self): # Я робота не видел, но мне сказали, что есть конвейер, фантазеры ей богу)
+        res = await asyncio.to_thread(robot.conveyer_start)
+        if res:
+            self.logger.info("Запуск конвейера!")
+        else:
+            self.logger.error("Отрицательный ответ при запуске конвейера")
+
 
     def log_logs_to_csv(self):
         if self.ui.flag_logs_to_csv.isChecked():
@@ -145,7 +208,7 @@ class MainWindow(QMainWindow, Ui_Dialog):
             data,
             indexes=["radians", "ticks", "temperature", "degrees"],
         )
-    async def update_table_position_robot(self):
+    async def update_table_position_robot_and_gripper(self):
         data = [
             await asyncio.to_thread(robot.getLinearTrackPosition)
         ]
@@ -154,10 +217,16 @@ class MainWindow(QMainWindow, Ui_Dialog):
             ["x", "y", "z"],
             data
         )
+        state = await asyncio.to_thread(robot.getToolState)
+        if state:
+            self.ui.Derjatel_itema_bez_sms_i_reg.setStyleSheet("background-color: rgb(0, 120, 0);")
+        else:
+            self.ui.Derjatel_itema_bez_sms_i_reg.setStyleSheet("background-color: rgb(255, 255, 255);")
+
     async def lifespan(self):
         tasks = [
             self.update_table_axes_joints(),
-            self.update_table_position_robot()
+            self.update_table_position_robot_and_gripper()
         ]
         await asyncio.gather(*tasks)
 

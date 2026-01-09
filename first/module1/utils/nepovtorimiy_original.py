@@ -59,6 +59,19 @@ class MotionBlurRobot(RandomMixin):
     def getangular_position(self):
         return self.random_coords()
 
+    def activateMoveToStart(self):
+        return self.random_state()
+
+    def conveyer_start(self):
+        return self.random_state()
+
+    def conveyer_stop(self):
+        return self.random_state()
+
+    def getToolState(self):
+        # Там не bool, ну предположу что там 0, 1 что и есть bool, а то не понятно что за состояние:
+        return self.random_state()
+
 class LedLamp(RandomMixin):
     def __init__(self, ip='192.168.2.101', port=8890):
         self.__hostname = ip

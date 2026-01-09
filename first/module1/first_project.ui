@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1195</width>
-    <height>586</height>
+    <height>681</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,10 +35,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>830</x>
+     <x>800</x>
      <y>30</y>
-     <width>331</width>
-     <height>551</height>
+     <width>391</width>
+     <height>641</height>
     </rect>
    </property>
    <property name="readOnly">
@@ -71,30 +71,30 @@
     <string>Запись в csv</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="robot_start_position">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>60</y>
+     <width>161</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Начальная позиция</string>
+   </property>
+  </widget>
   <widget class="QPushButton" name="robot_power_on">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>300</x>
      <y>60</y>
-     <width>113</width>
+     <width>141</width>
      <height>32</height>
     </rect>
    </property>
    <property name="text">
-    <string>Включить</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="robot_power_off">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>60</y>
-     <width>113</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Выключить</string>
+    <string>Запустить моторы</string>
    </property>
   </widget>
   <widget class="QTabWidget" name="tabWidget">
@@ -528,7 +528,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>440</x>
      <y>20</y>
      <width>351</width>
      <height>71</height>
@@ -590,9 +590,9 @@
   <widget class="QPushButton" name="STOP_I_TOCHKA">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>140</x>
      <y>10</y>
-     <width>261</width>
+     <width>291</width>
      <height>41</height>
     </rect>
    </property>
@@ -606,8 +606,8 @@
   <widget class="QPushButton" name="take_and_put">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>250</y>
+     <x>230</x>
+     <y>560</y>
      <width>113</width>
      <height>32</height>
     </rect>
@@ -635,14 +635,82 @@
   <widget class="QLabel" name="label_18">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>40</y>
+     <x>440</x>
+     <y>0</y>
      <width>81</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
     <string>Координаты</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="robot_conveyer_start">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>590</y>
+     <width>101</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Старт</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>570</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>КОНВЕЙЕР</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="robot_conveyer_stop">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>590</y>
+     <width>101</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Стоп</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Derjatel_itema_bez_sms_i_reg">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>590</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #ffffff;</string>
+   </property>
+   <property name="text">
+    <string>ГРИПЕР</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="off_worker">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>113</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ВЫКЛ</string>
    </property>
   </widget>
  </widget>
