@@ -18,11 +18,11 @@ class LogEmitter:
         if self._window.ui.flag_logs_to_csv.isChecked():
             self._window.logs_queue.put_nowait(log_message)
 
-    def info(self, text):
-        create_task(self.log("INFO",text, bkcolor="white"))
-    def debug(self, text):
-        create_task(self.log("DEBUG", text, bkcolor="blue"))
-    def warning(self, text):
-        create_task(self.log("WARNING",text,bkcolor="yellow"))
-    def error(self, text):
-        create_task(self.log("ERROR", text, bkcolor="red", tcolor="white"))
+    def info(self, *text):
+        create_task(self.log("INFO"," ".join([str(el)for el in text]), bkcolor="white"))
+    def debug(self, *text):
+        create_task(self.log("DEBUG", " ".join([str(el)for el in text]), bkcolor="blue", tcolor="white"))
+    def warning(self, *text):
+        create_task(self.log("WARNING"," ".join([str(el)for el in text]),bkcolor="yellow"))
+    def error(self, *text):
+        create_task(self.log("ERROR", " ".join([str(el)for el in text]), bkcolor="red", tcolor="white"))

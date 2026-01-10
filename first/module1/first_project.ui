@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1195</width>
+    <width>1223</width>
     <height>681</height>
    </rect>
   </property>
@@ -97,431 +97,6 @@
     <string>Запустить моторы</string>
    </property>
   </widget>
-  <widget class="QTabWidget" name="tabWidget">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>280</y>
-     <width>321</width>
-     <height>281</height>
-    </rect>
-   </property>
-   <property name="currentIndex">
-    <number>0</number>
-   </property>
-   <widget class="QWidget" name="tab">
-    <attribute name="title">
-     <string>moveJ</string>
-    </attribute>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>J1</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>60</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>J2</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>100</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>J3</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_10">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>140</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>J4</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_11">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>180</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>J5</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_12">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>220</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>J6</string>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveJ_slider_1">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>20</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveJ_slider_2">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>60</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveJ_slider_3">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>100</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveJ_slider_4">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>140</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveJ_slider_5">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>180</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveJ_slider_6">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>220</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>moveL</string>
-    </attribute>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>220</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>X</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>220</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Y</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>220</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Z</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>220</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>RX</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>220</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>RY</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>220</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>RZ</string>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveL1_sider_1">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>70</y>
-       <width>21</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="pageStep">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="tracking">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveL1_sider_2">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>70</y>
-       <width>21</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="pageStep">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="tracking">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveL1_sider_3">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>70</y>
-       <width>21</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="pageStep">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="tracking">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveL1_sider_4">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>70</y>
-       <width>21</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="pageStep">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="tracking">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveL1_sider_5">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>70</y>
-       <width>21</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="pageStep">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="tracking">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QSlider" name="MoveL1_sider_6">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>70</y>
-       <width>21</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>2</number>
-     </property>
-     <property name="pageStep">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>1</number>
-     </property>
-     <property name="tracking">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
-  </widget>
   <widget class="QTableWidget" name="table_position_robot">
    <property name="enabled">
     <bool>true</bool>
@@ -603,35 +178,6 @@
     <string>Аварийная остановка</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="take_and_put">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>560</y>
-     <width>113</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>захват/отхват</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="hand_mode">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>260</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Ручной режим</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_18">
    <property name="geometry">
     <rect>
@@ -643,61 +189,6 @@
    </property>
    <property name="text">
     <string>Координаты</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="robot_conveyer_start">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>590</y>
-     <width>101</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Старт</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_13">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>570</y>
-     <width>111</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>КОНВЕЙЕР</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="robot_conveyer_stop">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>590</y>
-     <width>101</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Стоп</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="Derjatel_itema_bez_sms_i_reg">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>590</y>
-     <width>81</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: #ffffff;</string>
-   </property>
-   <property name="text">
-    <string>ГРИПЕР</string>
    </property>
   </widget>
   <widget class="QPushButton" name="off_worker">
@@ -712,6 +203,720 @@
    <property name="text">
     <string>ВЫКЛ</string>
    </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>260</y>
+     <width>771</width>
+     <height>421</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Ручное</string>
+    </attribute>
+    <widget class="QLabel" name="Derjatel_itema_bez_sms_i_reg">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>330</y>
+       <width>81</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #ffffff;</string>
+     </property>
+     <property name="text">
+      <string>ГРИПЕР</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="take_and_put">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>300</y>
+       <width>113</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>захват/отхват</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="hand_mode">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ручной режим</string>
+     </property>
+    </widget>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>321</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>moveJ</string>
+      </attribute>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>J1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>J2</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>J3</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>J4</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>180</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>J5</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>220</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>J6</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveJ_slider_1">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>160</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveJ_slider_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>60</y>
+         <width>160</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveJ_slider_3">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>100</y>
+         <width>160</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveJ_slider_4">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>140</y>
+         <width>160</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveJ_slider_5">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>180</y>
+         <width>160</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveJ_slider_6">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>220</y>
+         <width>160</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>moveL</string>
+      </attribute>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>220</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>220</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>220</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Z</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>220</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>RX</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>220</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>RY</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>220</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>RZ</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveL1_sider_1">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>21</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="tracking">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveL1_sider_2">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>70</y>
+         <width>21</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="tracking">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveL1_sider_3">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>70</y>
+         <width>21</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="tracking">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveL1_sider_4">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>70</y>
+         <width>21</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="tracking">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveL1_sider_5">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>70</y>
+         <width>21</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="tracking">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QSlider" name="MoveL1_sider_6">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>70</y>
+         <width>21</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>2</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+       <property name="tracking">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="robot_conveyer_start">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>330</y>
+       <width>101</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Старт</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>310</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>КОНВЕЙЕР</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="robot_conveyer_stop">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>330</y>
+       <width>101</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Стоп</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>Алгоритмическое</string>
+    </attribute>
+    <widget class="QPushButton" name="pallete1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pallete2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>30</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>2</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pallete3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>100</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>3</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pallete4">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>100</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>4</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pallete_defect">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>БРАК</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="auto_work_back">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>230</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Отменить действие</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="auto_work_start">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>280</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Запустить</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="auto_work_save">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>0</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Сохранить</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="auto_work_download">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>50</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Загрузить</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="auto_table_for_alg">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>20</y>
+       <width>211</width>
+       <height>351</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="auto_work_stop">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Остановить</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="auto_table_pallete">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>130</y>
+       <width>251</width>
+       <height>161</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lamp_stoped_2">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>110</y>
+       <width>251</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Отгрузочная ячейка (Палета)</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="auto_pal_clear">
+     <property name="geometry">
+      <rect>
+       <x>424</x>
+       <y>290</y>
+       <width>263</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Освобождения отгрузочной ячейки</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>

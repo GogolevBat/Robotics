@@ -1,7 +1,11 @@
 import asyncio
 import random
 import threading
+from math import pi
 from time import sleep
+
+from motion.robot_control import InterpreterStates
+
 
 class RandomMixin:
     def random_state(self):
@@ -71,6 +75,56 @@ class MotionBlurRobot(RandomMixin):
     def getToolState(self):
         # Там не bool, ну предположу что там 0, 1 что и есть bool, а то не понятно что за состояние:
         return self.random_state()
+
+    def addMoveToPointL(self, waypoint_list, velocity=0.1, acceleration=0.2,
+                        rotational_velocity=3.18, rotational_acceleration=6.37,
+                        ref_joint_coord_rad=[]) -> bool:
+        return self.random_state()
+
+
+    def addMoveToPointC(self, waypoint_list, angle, velocity=0.1, acceleration=0.2,
+                        rotational_velocity=3.18, rotational_acceleration=6.37,
+                        ref_joint_coord_rad=[]) -> bool:
+
+        return self.random_state()
+
+
+    def addMoveToPointJ(self, waypoint_list=None, rotational_velocity=pi / 4, rotational_acceleration=pi / 2) -> bool:
+        return self.random_state()
+
+
+    def addLinearTrackMove(self, position: float = 0.0) -> bool:
+        return self.random_state()
+
+
+    def addToolState(self, value: int = 0) -> bool:
+        return self.random_state()
+
+
+    def addWait(self, wait_time: float = 0.0) -> bool:
+        return self.random_state()
+
+
+    def addConveyerState(self, value: int = 0) -> bool:
+        return self.random_state()
+
+
+    def play(self) -> bool:
+        return self.random_state()
+
+
+    def pause(self) -> bool:
+        return self.random_state()
+
+    def stop(self) -> bool:
+        return self.random_state()
+
+
+    def reset(self) -> bool:
+        return self.random_state()
+
+    def getActualStateOut(self) -> InterpreterStates:
+        return InterpreterStates.PROGRAM_IS_DONE.value
 
 class LedLamp(RandomMixin):
     def __init__(self, ip='192.168.2.101', port=8890):

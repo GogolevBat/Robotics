@@ -14,6 +14,7 @@ from PyQt5.QtWidgets import QMainWindow, QWidget, QTableWidget, QTableWidgetItem
 from PyQt6.QtCore import QTimer
 from qasync import QEventLoop, QApplication, asyncSlot
 
+from first.module1.utils.automatic_module import AutomaticModule
 from first.module1.utils.hand_move import Moving
 from motion.core import RobotControl, LedLamp
 from designe import Ui_Dialog
@@ -38,30 +39,34 @@ class TIPOROBOT:
 robot = MotionBlurRobot() # Так как я не знаю что возвращает api то дальше код с api будет примерный!
 # В документации не было примеров возврата, либо я не нашел
 
-def update_table(table: QTableWidget, columns: list, matrix: list[list[Any]], indexes:list=None) -> QTableWidget:
-    table.setRowCount(len(matrix))
-    table.setColumnCount(len(columns))
-    table.setHorizontalHeaderLabels(columns)
-    if indexes:
-        table.setVerticalHeaderLabels(indexes)
-    for i, row in enumerate(matrix):
-        for j, col in enumerate(row):
-            table.setItem(i, j, QTableWidgetItem(f"{col}"))
-    return table
+
 
 class MainWindow(QMainWindow, Ui_Dialog):
+    @staticmethod
+    def update_table(table: QTableWidget, columns: list, matrix: list[list[Any]], indexes:list=None) -> QTableWidget:
+        table.setRowCount(len(matrix))
+        table.setColumnCount(len(columns))
+        table.setHorizontalHeaderLabels(columns)
+        if indexes:
+            table.setVerticalHeaderLabels(indexes)
+        for i, row in enumerate(matrix):
+            for j, col in enumerate(row):
+                table.setItem(i, j, QTableWidgetItem(f"{col}"))
+        return table
+
     def __init__(self):
         super().__init__()
-        self.ui_init()
         self.logs_queue = asyncio.Queue()
         self.logger = LogEmitter(self)
+        self.robot = robot
+        self.ui_init()
 
     def ui_init(self):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
 
         self.lamp = MyLamp(self.ui)
-
+        self.auto_algorithm = AutomaticModule(self)
         # Добавляем к каждой кнопке движения, ассинхронный слот на конкретное управление
         for mt in self.ui.__dict__: # Подключение ручного управления
             if isinstance(self.ui.__dict__[mt], QSlider) and "MoveJ" in mt:
@@ -152,12 +157,13 @@ class MainWindow(QMainWindow, Ui_Dialog):
     @asyncSlot()
     async def stop_(self):
         self.logger.info("Остановка робота")
-        await self.stop_conv()
+        await self.auto_algorithm.end_auto()
         while True:
             res = await asyncio.to_thread(robot.disengage)
             if res:
                 break
             await asyncio.sleep(.1)
+        await self.stop_conv()
         self.logger.info("Полная остановка робота")
         await self.lamp.red()
 
@@ -202,7 +208,7 @@ class MainWindow(QMainWindow, Ui_Dialog):
             asyncio.to_thread(robot.get_motor_degree_position),
         ]
         data = await asyncio.gather(*tasks)
-        update_table(
+        self.update_table(
             self.ui.table_axes_joints,
             ["J1", "J2", "J3", "J4", "J5", "J6"],
             data,
@@ -212,7 +218,7 @@ class MainWindow(QMainWindow, Ui_Dialog):
         data = [
             await asyncio.to_thread(robot.getLinearTrackPosition)
         ]
-        update_table(
+        self.update_table(
             self.ui.table_position_robot,
             ["x", "y", "z"],
             data
