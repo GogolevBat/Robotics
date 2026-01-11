@@ -56,7 +56,8 @@ class ModelWorker:
                 .8,
                 (0, 0, 255)
             )
-            cv2.imwrite(self.file_path, img)
+
+            cv2.imwrite(self.file_path, cv2.resize(img, (400, 271)))
 
             return_data.append({
                 "name": self.model.names[int(cls)],
