@@ -105,16 +105,21 @@ class ModelManager:
         self.predicted_information: list[dict] = []
         self.queue = Queue()
         workers = 1 # ЛОгика доработана не будет - надежда на увеличение fps вывода изображения, времени не хватит, либо дальше будет лень
+        try:
+            self.processes = [
+                Process(
+                    target=ModelWorker(self.queue, *args, **kwargs, ismain=(i==0)),
+                )
+                for i in range(workers)
+            ]
+            for proc in self.processes:
+                proc.start()
+        except:
+            print("=" * 60)
+            print("ОШИБКА ПРИ ЗАПУСКЕ НЕЙРОСЕТИ".center(60))
+            print("=" * 60)
 
-        self.processes = [
-            Process(
-                target=ModelWorker(self.queue, *args, **kwargs, ismain=(i==0)),
-            )
-            for i in range(workers)
-        ]
 
-        for proc in self.processes:
-            proc.start()
 
 
     def close(self):

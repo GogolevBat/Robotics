@@ -64,7 +64,7 @@ class MainWindow(QMainWindow, Ui_Dialog):
         self.ui_init()
         self.photo_path = "new.png"
         self.model_manager = ModelManager(1, self.model_action,
-                                          "/Users/egoglev/PycharmProjects/Robotics/first/module1/neuro_model/runs/detect/train6/weights/best.pt",
+                                          "/Users/egoglev/PycharmProjects/Robotics/first/module1/neuro_model/runs/detect/train6/weighs/best.pt",
                                           self.photo_path,
                                           )
 
@@ -139,19 +139,8 @@ class MainWindow(QMainWindow, Ui_Dialog):
 
         print("Время выполнения зашрузки изображения", time.perf_counter() - st)
 
-        self.ui.neuro_start.clicked.connect(self.neuro_start)
-        self.ui.neuro_stop.clicked.connect(self.neuro_start)
-
     def log_change_text(self):
         self.ui.logs_field.moveCursor(QTextCursor.End)
-
-    def neuro_start(self):
-        self.model_manager.flag_active = True
-        print("neuro_start", self.model_manager.flag_active)
-
-    def neuro_stop(self):
-        self.model_manager.flag_active = False
-        print("neuro_start", self.model_manager)
 
     @asyncSlot()
     async def _take_put_motion(self):
