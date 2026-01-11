@@ -2,13 +2,14 @@ import asyncio
 import datetime
 import random
 import sys
+import time
 from asyncio import create_task
 from functools import wraps
 from typing import Any, Callable, Literal
 import aiohttp
 from PyQt5.QtCore import QSize
 from PyQt5.QtCore import pyqtSignal, QObject
-from PyQt5.QtGui import QTextCursor
+from PyQt5.QtGui import QTextCursor, QPixmap
 from PyQt5.QtWidgets import QMainWindow, QWidget, QTableWidget, QTableWidgetItem, QLabel, QStyle, QHBoxLayout, \
     QPushButton, QTextEdit, QLayout, QVBoxLayout, QSlider
 from PyQt6.QtCore import QTimer
@@ -16,6 +17,7 @@ from qasync import QEventLoop, QApplication, asyncSlot
 
 from first.module1.utils.automatic_module import AutomaticModule
 from first.module1.utils.hand_move import Moving
+from first.module1.utils.neuro_util import ModelManager
 from motion.core import RobotControl, LedLamp
 from designe import Ui_Dialog
 import aiofiles
@@ -60,6 +62,26 @@ class MainWindow(QMainWindow, Ui_Dialog):
         self.logger = LogEmitter(self)
         self.robot = robot
         self.ui_init()
+        self.photo_path = "new.png"
+        self.model_manager = ModelManager(1, self.model_action,
+                                          "/Users/egoglev/PycharmProjects/Robotics/first/module1/neuro_model/runs/detect/train6/weights/best.pt",
+                                          self.photo_path,
+                                          )
+
+    def model_action(self, result: list[dict]):
+        try:
+            self.ui.neuro_image_field.setPixmap(QPixmap(self.photo_path))
+            print("model_action",type(result), result, [res.values() for res in result])
+            self.update_table(
+                self.ui.neuro_objects,
+                ["Фигура", "Поле"],
+                [res.values() for res in result],
+
+            )
+        except Exception as e:
+            print(e)
+
+
 
     def ui_init(self):
         self.ui = Ui_Dialog()
@@ -113,9 +135,23 @@ class MainWindow(QMainWindow, Ui_Dialog):
 
         self.ui.robot_conveyer_stop.clicked.connect(self.stop_conv)
         self.ui.robot_conveyer_start.clicked.connect(self.start_conv)
+        st = time.perf_counter()
+
+        print("Время выполнения зашрузки изображения", time.perf_counter() - st)
+
+        self.ui.neuro_start.clicked.connect(self.neuro_start)
+        self.ui.neuro_stop.clicked.connect(self.neuro_start)
 
     def log_change_text(self):
         self.ui.logs_field.moveCursor(QTextCursor.End)
+
+    def neuro_start(self):
+        self.model_manager.flag_active = True
+        print("neuro_start", self.model_manager.flag_active)
+
+    def neuro_stop(self):
+        self.model_manager.flag_active = False
+        print("neuro_start", self.model_manager)
 
     @asyncSlot()
     async def _take_put_motion(self):
@@ -255,6 +291,7 @@ class MainWindow(QMainWindow, Ui_Dialog):
 
 async def main(stop_event: asyncio.Event, window: MainWindow):
     asyncio.create_task(window.logs_manager())
+    window.model_manager.start()
     while not stop_event.is_set():
         await asyncio.sleep(3)
         await window.lifespan()

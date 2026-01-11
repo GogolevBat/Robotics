@@ -1,0 +1,19 @@
+path: project-1-at-2026-01-11-09-36-8517fae7/
+train: train/images
+val: test/images
+
+names:
+  0: green_midi_cube
+  1: green_cylinder
+  2: green_pyramid
+  3: red_big_cube
+  4: red_pyramid
+  5: red_cylinder
+  6: red_sphere
+  7: blue_big_cube
+  8: blue_smal_cube
+  9: blue_midlle_cube
+  10: blue_cylinder
+  11: blue_sphere
+
+

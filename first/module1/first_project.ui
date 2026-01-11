@@ -214,7 +214,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -828,8 +828,8 @@
     <widget class="QPushButton" name="auto_work_save">
      <property name="geometry">
       <rect>
-       <x>610</x>
-       <y>0</y>
+       <x>480</x>
+       <y>10</y>
        <width>151</width>
        <height>51</height>
       </rect>
@@ -841,8 +841,8 @@
     <widget class="QPushButton" name="auto_work_download">
      <property name="geometry">
       <rect>
-       <x>610</x>
-       <y>50</y>
+       <x>480</x>
+       <y>60</y>
        <width>151</width>
        <height>51</height>
       </rect>
@@ -884,7 +884,7 @@
      <property name="geometry">
       <rect>
        <x>430</x>
-       <y>130</y>
+       <y>170</y>
        <width>251</width>
        <height>161</height>
       </rect>
@@ -894,7 +894,7 @@
      <property name="geometry">
       <rect>
        <x>430</x>
-       <y>110</y>
+       <y>150</y>
        <width>251</width>
        <height>20</height>
       </rect>
@@ -907,13 +907,70 @@
      <property name="geometry">
       <rect>
        <x>424</x>
-       <y>290</y>
+       <y>330</y>
        <width>263</width>
        <height>51</height>
       </rect>
      </property>
      <property name="text">
       <string>Освобождения отгрузочной ячейки</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_5">
+    <attribute name="title">
+     <string>Нейросеть</string>
+    </attribute>
+    <widget class="QLabel" name="neuro_image_field">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>50</y>
+       <width>400</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #e0e0e0</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="neuro_start">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>113</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Старт</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="neuro_stop">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>50</y>
+       <width>113</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Стоп</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="neuro_objects">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>120</y>
+       <width>256</width>
+       <height>192</height>
+      </rect>
      </property>
     </widget>
    </widget>
