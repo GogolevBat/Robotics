@@ -64,7 +64,7 @@ class MainWindow(QMainWindow, Ui_Dialog):
         self.ui_init()
         self.photo_path = "new.png"
         self.model_manager = ModelManager(1, self.model_action,
-                                          "/Users/egoglev/PycharmProjects/Robotics/first/module1/neuro_model/runs/detect/train6/weighs/best.pt",
+                                          "/Users/egoglev/PycharmProjects/Robotics/first/module1/neuro_model/runs/detect/train6/weights/best.pt",
                                           self.photo_path,
                                           )
 
