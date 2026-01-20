@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1223</width>
+    <height>934</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="table_state_big">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>30</y>
+      <width>731</width>
+      <height>151</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="table_state_mini">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>100</y>
+      <width>431</width>
+      <height>81</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="ActionsWindow">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>190</y>
+      <width>771</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab_6">
+     <attribute name="title">
+      <string>...</string>
+     </attribute>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>230</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Выберите режим управления...</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Ручное управление</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>930</x>
+        <y>140</y>
+        <width>113</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>50</y>
+        <width>113</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>100</y>
+        <width>113</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+     <widget class="QTabWidget" name="tabWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>371</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Линейное</string>
+       </attribute>
+       <widget class="QSlider" name="slider_linear_0">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>260</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>x</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>260</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>y</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_linear_1">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>260</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>z</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_linear_2">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>260</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>rx</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_linear_3">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>260</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>ry</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_linear_4">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>260</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>rz</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_linear_5">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="tracking">
+         <bool>true</bool>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>Joints</string>
+       </attribute>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>250</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>j4</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>250</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>j6</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_9">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>250</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>j3</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_10">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>250</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>j1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>250</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>j2</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_12">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>250</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>j5</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_joint_0">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_joint_1">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_joint_2">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_joint_3">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_joint_4">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_joint_5">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>70</y>
+          <width>22</width>
+          <height>160</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>2</number>
+        </property>
+        <property name="pageStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="robot_take">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>60</y>
+        <width>113</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Схватить</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="robot_untake">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>60</y>
+        <width>113</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Отхватить</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="robot_conv_start">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>150</y>
+        <width>113</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Запустить</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="robot_conv_stop">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>150</y>
+        <width>113</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Остановить</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>40</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Гриппер</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>130</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Конвейер</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="table_state_count_moveble_objects">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>270</y>
+        <width>291</width>
+        <height>81</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="clear_count_move_objects">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>360</y>
+        <width>113</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Очистить</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Автоматическое управление</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>...</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="elimination_stop">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>790</y>
+      <width>251</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ЭКСТРЕННОЕ ТОРМОЖЕНИЕ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="robot_on">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>750</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ВКЛ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="robot_off">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>750</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ВЫКЛ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="robot_pause">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>800</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ПАУЗА</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="save_to_file">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>401</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Начать сохрание в файл</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="start_position">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>700</y>
+      <width>181</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>НАЧАЛЬНАЯ ПОЗИЦИЯ</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>80</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Состояние </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lamp_state">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>10</y>
+      <width>161</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #ffffff;</string>
+    </property>
+    <property name="text">
+     <string>Состояние светофора</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="logs_field">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>250</y>
+      <width>401</width>
+      <height>661</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
