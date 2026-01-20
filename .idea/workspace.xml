@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bdc298b8-0906-43c5-8cb8-3d6415e3dac4" name="Changes" comment="Добавил данные об обучении модели">
+      <change beforePath="$PROJECT_DIR$/first/module1/neuro_model/lern.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/first/module1/neuro_model/lern.ipynb" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="moduleC_007" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GogolevBat&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/GogolevBat/Robotics.git&quot;,
+    &quot;accountId&quot;: &quot;18c4ac09-28ce-48f3-8d0d-8976ea0c7145&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="36ewZVvnKX4SXBGVKwpKuFlp3g9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.automatic_module.executor": "Run",
+    "Python.designe.executor": "Run",
+    "Python.hand_move.executor": "Run",
+    "Python.lamp.executor": "Run",
+    "Python.neuro_util.executor": "Run",
+    "Python.project.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "last_opened_file_path": "/Users/egoglev/PycharmProjects/Robotics/first/module1/neuro_model/project-1-at-2026-01-11-09-36-8517fae7/train/labels",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "trusted.hosts",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/first/module1/neuro_model/project-1-at-2026-01-11-09-36-8517fae7/train/labels" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/first/module1" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/first/module1/neuro_model/project-1-at-2026-01-11-09-36-8517fae7/train/test" />
+      <recent name="$PROJECT_DIR$/first/module1/neuro_model/project-1-at-2026-01-11-09-36-8517fae7/test/labels" />
+      <recent name="$PROJECT_DIR$/first/module1/neuro_model/project-1-at-2026-01-11-09-36-8517fae7/test/images" />
+      <recent name="$PROJECT_DIR$/first/module1/neuro_model" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="project" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Robotics" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/first/module1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/first/module1/project.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.project" />
+        <item itemvalue="Python.project" />
+        <item itemvalue="Python.project" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.122" />
+        <option value="bundled-python-sdk-880ecab49056-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.122" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdc298b8-0906-43c5-8cb8-3d6415e3dac4" name="Changes" comment="" />
+      <created>1765380400503</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765380400503</updated>
+      <workItem from="1765380401594" duration="1756000" />
+      <workItem from="1766559733146" duration="825000" />
+      <workItem from="1767089043866" duration="64206000" />
+      <workItem from="1768906959860" duration="2778000" />
+    </task>
+    <task id="LOCAL-00001" summary="module1">
+      <option name="closed" value="true" />
+      <created>1765380726502</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1765380726502</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add interface image">
+      <option name="closed" value="true" />
+      <created>1765380843517</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765380843517</updated>
+    </task>
+    <task id="LOCAL-00003" summary="some comments">
+      <option name="closed" value="true" />
+      <created>1765381506583</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1765381506583</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add lamp and lshe robot">
+      <option name="closed" value="true" />
+      <created>1767096689676</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1767096689676</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update hand working">
+      <option name="closed" value="true" />
+      <created>1767099923298</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1767099923298</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update naming in lamp">
+      <option name="closed" value="true" />
+      <created>1767953656714</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1767953656714</updated>
+    </task>
+    <task id="LOCAL-00007" summary="module 1 end work add lamp vrode full works and add new buttons for already, excuse me bruh ...">
+      <option name="closed" value="true" />
+      <created>1767957752488</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1767957752488</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Модуль 2, Некая попытка сделать автоматизированние с помощью контрольных точек">
+      <option name="closed" value="true" />
+      <created>1768066810240</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1768066810240</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Модуль 3, Майор Гром: игра с multiproccessing, не добавить не убавить">
+      <option name="closed" value="true" />
+      <created>1768139104184</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1768139104184</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Модуль 3, изменение размера изображения перед выводом на экран">
+      <option name="closed" value="true" />
+      <created>1768139394510</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1768139394510</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Небольшие доработки, чтобы можно было легче запустить">
+      <option name="closed" value="true" />
+      <created>1768145384366</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1768145384366</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Небольшие доработки, чтобы можно было легче запустить">
+      <option name="closed" value="true" />
+      <created>1768145450868</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1768145450868</updated>
+    </task>
+    <task id="LOCAL-00013" summary="описание">
+      <option name="closed" value="true" />
+      <created>1768145621470</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1768145621470</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Добавил данные об обучении модели">
+      <option name="closed" value="true" />
+      <created>1768297367934</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1768297367934</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="module1" />
+    <MESSAGE value="add interface image" />
+    <MESSAGE value="some comments" />
+    <MESSAGE value="add lamp and lshe robot" />
+    <MESSAGE value="update hand working" />
+    <MESSAGE value="update naming in lamp" />
+    <MESSAGE value="module 1 end work add lamp vrode full works and add new buttons for already, excuse me bruh ..." />
+    <MESSAGE value="Модуль 2, Некая попытка сделать автоматизированние с помощью контрольных точек" />
+    <MESSAGE value="Модуль 3, Майор Гром: игра с multiproccessing, не добавить не убавить" />
+    <MESSAGE value="Модуль 3, изменение размера изображения перед выводом на экран" />
+    <MESSAGE value="Небольшие доработки, чтобы можно было легче запустить" />
+    <MESSAGE value="описание" />
+    <MESSAGE value="Добавил данные об обучении модели" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил данные об обучении модели" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Robotics$project.coverage" NAME="project Coverage Results" MODIFIED="1768304288894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/first/module1" />
+    <SUITE FILE_PATH="coverage/Robotics$hand_move.coverage" NAME="hand_move Coverage Results" MODIFIED="1767098970649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/first/module1/utils" />
+    <SUITE FILE_PATH="coverage/Robotics$designe.coverage" NAME="designe Coverage Results" MODIFIED="1767097265848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/first/module1" />
+    <SUITE FILE_PATH="coverage/Robotics$test.coverage" NAME="test Coverage Results" MODIFIED="1768133066903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/first/module1/neuro_model" />
+    <SUITE FILE_PATH="coverage/Robotics$neuro_util.coverage" NAME="neuro_util Coverage Results" MODIFIED="1768144958936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/first/module1/utils" />
+    <SUITE FILE_PATH="coverage/Robotics$automatic_module.coverage" NAME="automatic_module Coverage Results" MODIFIED="1767960059048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/first/module1/utils" />
+    <SUITE FILE_PATH="coverage/Robotics$lamp.coverage" NAME="lamp Coverage Results" MODIFIED="1767095513848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/first/module1/utils" />
+  </component>
+</project>
