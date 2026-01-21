@@ -398,7 +398,7 @@ class RobotControl:
             int: actual state of the interpreter or None if failed
 
         """
-        return "PROGRAM_READY"
+        return 200
 
     def getMotorPositionTick(self):
         sleep(delay_)

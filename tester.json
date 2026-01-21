@@ -1,0 +1,146 @@
+[
+    {
+        "name": "Объект 3",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_PALLETE",
+            "PALLETE_3",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "Объект 1",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_PALLETE",
+            "PALLETE_1",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "Объект 2",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_PALLETE",
+            "PALLETE_2",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "БРАК",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_DEFECT",
+            "DEFECT_",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "БРАК",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_DEFECT",
+            "DEFECT_",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "Объект 3",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_PALLETE",
+            "PALLETE_3",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "Объект 3",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_PALLETE",
+            "PALLETE_3",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "Объект 4",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_PALLETE",
+            "PALLETE_4",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "Объект 2",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_PALLETE",
+            "PALLETE_2",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "Объект 1",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_PALLETE",
+            "PALLETE_1",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "Объект 1",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_PALLETE",
+            "PALLETE_1",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    },
+    {
+        "name": "БРАК",
+        "action": [
+            "TAKE",
+            "TOOL_ON",
+            "UNDER_CONV",
+            "ROTATE_TO_DEFECT",
+            "DEFECT_",
+            "TOOL_OFF",
+            "UNDER_CONV"
+        ]
+    }
+]

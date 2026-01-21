@@ -49,9 +49,9 @@ class ActionHandleMode(QObject):
 class UltraWindow(Ui_MainWindow, QMainWindow):
     def __init__(self):
         super().__init__()
-        self.start_ui()
         self.robot = RobotControl()
         self.state = State()
+        self.start_ui()
 
         self.count_movement = 0
 
@@ -132,7 +132,8 @@ class UltraWindow(Ui_MainWindow, QMainWindow):
     @asyncSlot()
     async def robot_pause(self):
         self.log.info("Пауза робота")
-        await asyncio.to_thread(self.robot.disengage)
+        await self.robot_stop()
+        # await asyncio.to_thread(self.robot.disengage)
         self.lamp.yellow()
 
     @asyncSlot()
@@ -143,7 +144,7 @@ class UltraWindow(Ui_MainWindow, QMainWindow):
     @asyncSlot()
     async def full_stop(self):
         self.log.info("Принудительная остановка робота")
-        await asyncio.to_thread(self.robot.disengage)
+        await self.robot_stop()
         await self.stop_conv()
         self.lamp.red()
         

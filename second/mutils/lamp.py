@@ -13,3 +13,5 @@ class Lamp:
         self._set("#ffff00")
     def green(self):
         self._set("#00ff00")
+    def clear(self):
+        self._set("#ffffff")
