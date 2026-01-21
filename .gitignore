@@ -1,3 +1,6 @@
 /__pycache__
 /*.xml
 /*.iml
+/*.pyc
+/.DS_Store
+.DS_Stor
