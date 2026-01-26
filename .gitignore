@@ -19,3 +19,4 @@ second/mlearning/runs/detect/train8
 second/mlearning/runs/detect/train9
 second/mlearning/runs/detect/train11
 __pycache__/
+second/mlearning/yolo11s.pt

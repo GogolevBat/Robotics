@@ -44,7 +44,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab_6">
      <attribute name="title">
@@ -864,8 +864,63 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>...</string>
+      <string>Нейросеть</string>
      </attribute>
+     <widget class="QCheckBox" name="neuro_ch_pyramid">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>370</y>
+        <width>87</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Пирамида</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="neuro_ch_rocket">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>400</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ракета носитель</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="neuro_ch_cylinder">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>430</y>
+        <width>87</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Цилиндр</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="neuro_field_camera">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>50</y>
+        <width>400</width>
+        <height>300</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QPushButton" name="elimination_stop">
